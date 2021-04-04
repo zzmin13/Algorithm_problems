@@ -46,7 +46,7 @@ let fs = require('fs');
 let input = fs.readFileSync('예제.txt').toString().split('\n');
 let remainder = [];
 
-for(let i = 0; i < input.length; i++){
+for(let i = 0; i < 10; i++){
     if(remainder.indexOf(parseInt(input[i]) % 42) === -1){
         remainder.push(parseInt(input[i]) % 42);
     }
