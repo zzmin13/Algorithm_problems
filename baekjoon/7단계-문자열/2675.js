@@ -29,8 +29,8 @@ let fs = require('fs');
 let input = fs.readFileSync('예제.txt').toString().split('\n');
 
 let count = Number(input[0]);
-console.log(count);
 let answer = '';
+
 for(let i = 1; i <= count; i++){
     input[i] = input[i].split(" ");
     input[i][0] = Number(input[i][0]);
