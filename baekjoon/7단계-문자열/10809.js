@@ -22,7 +22,7 @@ let count = input.length;
 let array = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
 for(let i = 0; i < array.length; i++){
-    array[i] = input.indexOf(array[i]);
+    array[i] = input.indexOf(array[i]); // input에 존재하지 않는다면 인덱스를 -1을 반환함
     
 }
 console.log(array.join(" "));
