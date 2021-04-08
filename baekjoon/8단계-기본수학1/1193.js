@@ -39,11 +39,10 @@ let sum = 0;
 let count = 1;
 
 while(true){ // 주어진 숫자가 몇 행에 있는지 알기 위함
-    if(sum + count >= X){
-        sum = sum + count;
+    sum = sum + count;
+    if(sum >= X){
         break;
     }
-    sum = sum + count;
     count++;
 }
 
@@ -52,12 +51,12 @@ let firstNumber = sum - count + 1; // row행 0열 (첫번째 항)
 let col = X - firstNumber; // row행 col열
 
 
-if(row % 2 === 0){// 짝수행이면 1/n
+if(row % 2 === 0){// 짝수행이면 첫 항이 1/n
     firstNumerator = 1; // 분자 = 1
     firstDenominator = row; // 분모 = row
     answerNumerator = firstNumerator + col; // 분자 + col
     answerDenominator = firstDenominator - col; // 분모 - col
-}else{ // 홀수행이면 n/1
+}else{ // 홀수행이면 첫 항이 n/1
     firstNumerator = row;
     firstDenominator = 1;
     answerNumerator = firstNumerator - col;

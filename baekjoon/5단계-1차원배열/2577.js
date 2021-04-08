@@ -34,14 +34,15 @@ A × B × C = 150 × 266 × 427 = 17037300 이 되고,
 
 let fs = require('fs');
 let input = fs.readFileSync('예제.txt').toString().split('\n').map((element) => Number(element));
-const sumString = String(input.reduce((prev,curr) => {
-    curr = prev * curr;
-    return curr;
-}));
-
+let sum = 1;
+for(let i = 0; i < 3; i++){
+    sum *= input[i];
+}
+const sumString = String(sum);
+const size = sumString.length;
 let NumberSum = [0,0,0,0,0,0,0,0,0,0];
-for(let i = 0; i < sumString.length; i++){
-    NumberSum[Number(sumString[i])]++;
+for(let i = 0; i < size; i++){
+    NumberSum[Number(sumString.charAt(i))] += 1;
 }
 for(let element of NumberSum){
     console.log(element);
