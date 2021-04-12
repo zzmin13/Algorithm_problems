@@ -47,7 +47,6 @@ let y; // 도착 지점
 let a;
 let b;
 
-let lightYear = 1; // 광년
 let answerArray = [];
 for(let i = 1; i <= count; i++){
     input[i] = input[i].split(" ");
