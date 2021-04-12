@@ -46,11 +46,13 @@ let fs = require('fs');
 let input = fs.readFileSync('예제.txt').toString();
 
 let N = Number(input);
-let count = 0;
+let five = 0;
+let three = 0;
 
 while(true){
     if(N % 5 === 0){
-        console.log(N / 5 + count);
+        five = N / 5;
+        console.log(five + three);
         break;
     }
     if(N < 0){
@@ -58,5 +60,5 @@ while(true){
         break;
     }
     N = N - 3;
-    count++;
+    three++;
 }
