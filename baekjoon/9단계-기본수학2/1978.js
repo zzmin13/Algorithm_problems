@@ -29,7 +29,7 @@ let primeNumber;
 for(let i = 0; i < n; i++){
     primeNumber = 3;
     while(true){
-        if(numbers[i] === 1 || numbers[i] % 2 === 0){
+        if(numbers[i] === 1 || numbers[i] % 2 === 0){ // 1과 2가 아닌 짝수는 소수임
             if(numbers[i] === 2){
                 primeNumbers.push(numbers[i]);
                 break;
@@ -50,4 +50,3 @@ for(let i = 0; i < n; i++){
     }
 }
 console.log(primeNumbers.length);
-console.log(primeNumbers.join(" "));
