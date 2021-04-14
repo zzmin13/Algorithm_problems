@@ -38,9 +38,10 @@ let primeNumbers = [];
 let sum = 0;
 for(let target = a; target <= b; target++){
     for(let p = 2; p <= target; p++){
-        if(p === target){
+        if(p*p > target){
             primeNumbers.push(target);
             sum += target;
+            break;
         }
         if(target % p === 0){
             break;

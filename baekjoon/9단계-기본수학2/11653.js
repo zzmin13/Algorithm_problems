@@ -45,21 +45,22 @@ N의 소인수분해 결과를 한 줄에 하나씩 오름차순으로 출력한
 let fs = require('fs');
 let input = fs.readFileSync('예제.txt').toString();
 let number = Number(input);
-let originNumber = number;
+let originNumber = number; // 원래수를 알기 위해 복사해둠
 let primenumber = 2;
 let smallFactorization = [];
+
 while(true){
-    if(originNumber === 1){
+    if(originNumber === 1){ // 원래 수가 1이면 반복문 탈출
         break;
     }else{
-        if(number !== 1){
-            if(number % primenumber === 0){
+        if(number !== 1){ // number가 1이 아닐때까지 
+            if(number % primenumber === 0){ // 소인수분해 되었을 때
                 smallFactorization.push(primenumber);
                 number = number / primenumber;
             }else{
                 primenumber++;
             }
-        }else{
+        }else{ // 나누어서 number가 1이 되면 반복문을 탈출한다.
             break;
         }
     }
