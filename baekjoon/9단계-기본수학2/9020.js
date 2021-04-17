@@ -44,6 +44,7 @@ for(let i = 1; i <= size; i++){
     target = Number(input[i]);
     answer = [];
     primeNumbers = [];
+
     // 주어진 수보다 작은 소수의 집합을 구한다.
     for(let p = 1; p < target; p++){
         primeNumber = 3;
@@ -69,6 +70,7 @@ for(let i = 1; i <= size; i++){
         }
     }
 
+    // 주어진 수 - 소수 = 소수인가? 를 따져서 answer 집합에 넣고, 두 소수간의 갭이 더 작은 답이 등장하면 그 값으로 갱신
     for(let k = 0; k < primeNumbers.length; k++){
         if(primeNumbers.includes(target - primeNumbers[k])){
             if(answer.length >= 1){
