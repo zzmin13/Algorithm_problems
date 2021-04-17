@@ -30,15 +30,7 @@ const x = Number(input[0]);
 const y = Number(input[1]);
 const w = Number(input[2]);
 const h = Number(input[3]);
-let answer;
 
-if(x <= 0.5*w && y <= 0.5*h){
-    answer = x > y ? y : x;
-}else if(x > 0.5*w && y <= 0.5*h){
-    answer = (w - x) > y ? y: (w - x);
-}else if(x <= 0.5*w && y > 0.5*h){
-    answer = x > (h - y) ? (h - y) : x;
-}else if(x > 0.5*w && y > 0.5*h){
-    answer = (w - x) > (h - y) ? (h - y) : (w - x);
-}
+const array = [x, w-x, y, h-y];
+const answer = Math.min(...array);
 console.log(answer);
