@@ -76,5 +76,4 @@ for(let i = 0; i < number; i++){
         str+= "\n";
     }
 }
-
 console.log(str);
