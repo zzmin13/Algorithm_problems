@@ -55,16 +55,19 @@ const answer = [];
 for(let i = 1; i <= N; i++){
     person.push(input[i].split(" "));
 }
-for(let j = 0; j < person.length; j++){
-    let count = 0;
-    for(let k = 0; k < person.length; k++){
-        if(j === k){
-            continue;
+const findBigRank = (n, person) => {
+    for(let j = 0; j < n; j++){
+        let count = 0;
+        for(let k = 0; k < n; k++){
+            if(j === k){
+                continue;
+            }
+            if(Number(person[k][0]) > Number(person[j][0]) && Number(person[k][1]) > Number(person[j][1])){
+                count++; // 자기보다 몸무게, 키가 모두 큰 사람을 count
+            }
         }
-        if(Number(person[k][0]) > Number(person[j][0]) && Number(person[k][1]) > Number(person[j][1])){
-            count++; // 자기보다 몸무게, 키가 모두 큰 사람을 count
-        }
+        answer.push(count+1); // 자기보다 덩치가 큰 사람 수 + 1이 자기 등수이므로
     }
-    answer.push(count+1); // 자기보다 덩치가 큰 사람 수 + 1이 자기 등수이므로
+    return answer;
 }
-console.log(answer.join(" "));
+console.log(findBigRank(N, person).join(" "));
