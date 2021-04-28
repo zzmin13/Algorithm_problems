@@ -55,7 +55,6 @@ const height = Number(input[0].split(" ")[0]);
 const width = Number(input[0].split(" ")[1]);
 const chessboard = [];
 let answer = 0;
-
 for (let i = 1; i <= height; i++) {
   input[i] = input[i].slice(0, width);
   chessboard.push(input[i].split(""));
