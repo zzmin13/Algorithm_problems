@@ -32,6 +32,7 @@ const N = Number(input);
 let current = 666;
 let count = 0;
 let answer;
+let totalCount = 0;
 while (true) {
   if (String(current).includes("666")) {
     count++;
