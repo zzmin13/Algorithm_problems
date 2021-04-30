@@ -36,24 +36,4 @@ N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로�
 
 */
 
-let fs = require("fs");
-let input = fs.readFileSync("예제.txt").toString().split("\n");
-const size = Number(input[0]);
-input.shift();
-const numbers = input.map((element) => Number(element));
-const max = Math.max(...numbers);
-
-const array = new Array(max);
-array.fill(0);
-
-for (let i = 0; i < numbers.length; i++) {
-  array[numbers[i] - 1]++;
-}
-
-for (let i = 0; i < array.length; i++) {
-  if (array[i]) {
-    for (let j = 0; j < array[i]; j++) {
-      console.log(i + 1);
-    }
-  }
-}
+//10989 문제는 node.js로 입력만 받아도 메모리 초과가 나기 때문에 성공한 사람이 한명도 없었다! ㅠㅠ
