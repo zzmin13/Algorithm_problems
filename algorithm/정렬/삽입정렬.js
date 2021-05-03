@@ -1,12 +1,14 @@
-const insertionSort = (array) => {
-  let i, j, temp;
-  for (i = 1; i < array.length; i++) {
-    temp = array[i];
-    for (j = i - 1; j >= 0 && temp < array[j]; j--) {
-      array[j + 1] = array[j];
+function insertionSort(array) {
+  for (let i = 1; i < array.length; i++) {
+    let temp = array[i];
+    let left = i - 1;
+    while (left >= 0 && array[left] > temp) {
+      array[left + 1] = array[left];
+      array[left] = temp;
+      temp = array[left];
+      left--;
     }
-    array[j + 1] = temp;
   }
   return array;
-};
+}
 console.log(insertionSort([5, 6, 1, 2, 4, 3]));
