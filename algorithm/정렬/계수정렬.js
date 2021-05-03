@@ -11,17 +11,17 @@ input.shift();
 const numbers = input.map((element) => Number(element));
 const max = Math.max(...numbers);
 
-const array = new Array(max);
+const array = new Array(max + 1);
 array.fill(0);
 
 for (let i = 0; i < numbers.length; i++) {
-  array[numbers[i] - 1]++;
+  array[numbers[i]]++;
 }
 
 for (let i = 0; i < array.length; i++) {
   if (array[i]) {
     for (let j = 0; j < array[i]; j++) {
-      console.log(i + 1);
+      console.log(i);
     }
   }
 }
