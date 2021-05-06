@@ -1,27 +1,16 @@
-function mergeSort(array) {
-  if (array.length < 2) {
-    return array;
-  }
-  const pivot = Math.floor(array.length / 2);
-  const left = array.slice(0, pivot);
-  const right = array.slice(pivot, array.length);
-  return merge(mergeSort(left), mergeSort(right));
-}
-function merge(left, right) {
-  const result = [];
-  while (left.length && right.length) {
-    if (left[0] <= right[0]) {
-      result.push(left.shift());
-    } else {
-      result.push(right.shift());
+// 버블 정렬
+function bubbleSort(array) {
+  for (let i = 0; i < array.length - 1; i++) {
+    for (let j = 0; j < array.length - 1 - i; j++) {
+      if (array[j] > array[j + 1]) {
+        let temp = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = temp;
+      }
     }
   }
-  while (left.length) {
-    result.push(left.shift());
-  }
-  while (right.length) {
-    result.push(right.shift());
-  }
-  return result;
+  return array;
 }
-console.log(mergeSort([5, 2, 4, 7, 1, 6, 8, 3]));
+
+const array = [9, 5, 4, 3, 2, 1, 6, 7, 8];
+console.log(bubbleSort(array));
