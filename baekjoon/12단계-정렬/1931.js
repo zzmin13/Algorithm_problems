@@ -38,6 +38,7 @@ const N = Number(input[0]);
 input.shift();
 input = input.map((element) => element.split(" "));
 input.sort((a, b) => {
+  // 회의가 끝나는 시간을 기준으로 정렬, 끝나는 시간이 같다면 일찍 시작하는 순으로 정렬
   a[0] = Number(a[0]);
   a[1] = Number(a[1]);
   b[0] = Number(b[0]);
