@@ -35,6 +35,7 @@ const BFS = (row, col) => {
     col = target[1];
     if (visited[row][col] === 0) {
       // 방문처리
+      console.log(`방문처리! (${row}, ${col})`);
       visited[row][col] = 1;
       number++;
       for (let n = 0; n < moveRow.length; n++) {
@@ -55,6 +56,7 @@ let number = 0;
 for (let row = 0; row < N; row++) {
   for (let col = 0; col < N; col++) {
     if (Number(input[row][col]) === 1 && visited[row][col] === 0) {
+      console.log(`🚨BFS`);
       BFS(row, col);
       complex.push(number);
       number = 0;

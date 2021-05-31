@@ -70,6 +70,7 @@ const DFS = (row, col) => {
   ) {
     // 범위안에 들어가고 && 방문한적이 없으면 DFS 탐색
     visited[row][col] = 1; // 방문 처리
+    console.log(`방문처리! (${row}, ${col})`);
     number++;
     for (let n = 0; n < moveRow.length; n++) {
       DFS(row + moveRow[n], col + moveCol[n]);
@@ -83,6 +84,7 @@ let number = 0;
 for (let row = 0; row < N; row++) {
   for (let col = 0; col < N; col++) {
     if (Number(input[row][col]) === 1 && visited[row][col] === 0) {
+      console.log(`💩DFS`);
       DFS(row, col);
       complex.push(number);
       number = 0;
