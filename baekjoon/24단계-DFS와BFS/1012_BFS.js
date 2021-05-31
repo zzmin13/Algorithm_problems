@@ -15,7 +15,6 @@ const moveCol = [1, -1, 0, 0];
 
 const rangeCheck = (r, c, row, col) => {
   if (r >= 0 && r < row && c >= 0 && c < col) {
-    // console.log(`r: ${r}, c: ${c}, row: ${row}, col: ${col}`);
     return true;
   }
   return false;
