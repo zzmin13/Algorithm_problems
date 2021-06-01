@@ -109,3 +109,4 @@ const BFS = (r, c) => {
 
 BFS(0, 0);
 console.log(path[N - 1][M - 1]);
+console.log(path.forEach((element) => console.log(element.join(" "))));
