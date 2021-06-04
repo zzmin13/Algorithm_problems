@@ -65,9 +65,7 @@ tomato = tomato.map((element) => element.trim().split(" "));
 const row = Number(tomato[0][1]); // 세로: 행
 const column = Number(tomato[0][0]); // 가로: 열
 tomato.shift();
-
-const visited = Array.from(new Array(row), () => new Array(column).fill(0));
-const path = Array.from(new Array(row), () => new Array(column).fill(0));
+const ripeTomato = Array.from(new Array(row), () => new Array(column).fill(0));
 const moveRow = [0, 0, 1, -1];
 const moveCol = [1, -1, 0, 0];
 let answer;
@@ -84,21 +82,17 @@ const BFS = (queue) => {
   while (number !== queue.length) {
     const currentRow = queue[number][0];
     const currentCol = queue[number][1];
-    if (!visited[currentRow][currentCol]) {
-      visited[currentRow][currentCol] = 1; // 방문처리
-      for (let n = 0; n < 4; n++) {
-        const nextRow = currentRow + moveRow[n];
-        const nextCol = currentCol + moveCol[n];
-        if (
-          rangeCheck(nextRow, nextCol) &&
-          !visited[nextRow][nextCol] &&
-          !path[nextRow][nextCol] &&
-          Number(tomato[nextRow][nextCol]) === 0
-        ) {
-          queue.push([nextRow, nextCol]);
-          path[nextRow][nextCol] = path[currentRow][currentCol] + 1;
-          answer = path[nextRow][nextCol];
-        }
+    for (let n = 0; n < 4; n++) {
+      const nextRow = currentRow + moveRow[n];
+      const nextCol = currentCol + moveCol[n];
+      if (
+        rangeCheck(nextRow, nextCol) &&
+        !ripeTomato[nextRow][nextCol] &&
+        Number(tomato[nextRow][nextCol]) === 0
+      ) {
+        queue.push([nextRow, nextCol]);
+        ripeTomato[nextRow][nextCol] = ripeTomato[currentRow][currentCol] + 1;
+        answer = ripeTomato[nextRow][nextCol];
       }
     }
     number++;
@@ -113,9 +107,9 @@ for (let r = 0; r < row; r++) {
   for (let c = 0; c < column; c++) {
     if (Number(tomato[r][c]) === 1) {
       queue.push([Number(r), Number(c)]);
-      path[Number(r)][Number(c)] = 1;
+      ripeTomato[Number(r)][Number(c)] = 1;
     } else if (Number(tomato[r][c]) === -1) {
-      path[Number(r)][Number(c)] = -1;
+      ripeTomato[Number(r)][Number(c)] = -1;
     } else if (Number(tomato[r][c]) === 0) {
       zero = true;
     }
@@ -126,12 +120,13 @@ if (!zero) {
   answer = 0;
 } else {
   BFS(queue);
-  for (let i = 0; i < path.length; i++) {
-    if (path[i].includes(0)) {
+  for (let i = 0; i < ripeTomato.length; i++) {
+    if (ripeTomato[i].includes(0)) {
       answer = -1;
       break;
     }
   }
 }
 
+console.log(ripeTomato);
 console.log(answer);
