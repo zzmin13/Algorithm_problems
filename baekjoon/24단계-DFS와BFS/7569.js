@@ -72,6 +72,7 @@ const Box = Number(input[0][2]);
 input.shift();
 input = input.map((element) => element.trim().split(" "));
 const tomato = Array.from(new Array(Box), () => new Array());
+
 for (let b = 0; b < Box; b++) {
   const startIndex = b * Row;
   for (let i = startIndex; i < startIndex + Row; i++) {
@@ -125,6 +126,7 @@ const ripeTomato = Array.from(new Array(Box), () =>
 const moveBox = [0, 0, 0, 0, -1, 1]; // 동 서 남 북 앞 뒤
 const moveRow = [0, 0, 1, -1, 0, 0]; // 동 서 남 북 앞 뒤
 const moveCol = [1, -1, 0, 0, 0, 0]; // 동 서 남 북 앞 뒤
+
 // 초벌 작업 끝
 
 let zero = false;
