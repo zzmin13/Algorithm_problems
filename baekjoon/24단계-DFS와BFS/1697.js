@@ -62,10 +62,10 @@ const BFS = (queue) => {
 };
 
 if (subin !== sister) {
+  // 수빈과 동생의 위치가 다른 경우
   if (subin > sister) {
+    // 수빈의 위치가 동생보다 큰 경우
     answer = subin - sister;
-  } else if (sister === 0) {
-    answer = subin;
   } else {
     const queue = [subin - 1, subin + 1, subin * 2];
     BFS(queue);
