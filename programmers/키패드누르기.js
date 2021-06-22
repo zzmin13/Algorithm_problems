@@ -15,8 +15,6 @@
 
 function solution(numbers, hand) {
   const answerArray = [];
-  const moveRow = [0, 0, 1, -1]; // 동 서 남 북
-  const moveCol = [1, -1, 0, 0]; // 동 서 남 북
   let leftLocation = [3, 0];
   let rightLocation = [3, 2];
 
