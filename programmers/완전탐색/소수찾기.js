@@ -38,6 +38,7 @@ const getPermutations = (array, selectNumber) => {
   });
   return results;
 };
+
 function solution(numbers) {
   const answerArray = [];
   const numbersArray = numbers.split("");
