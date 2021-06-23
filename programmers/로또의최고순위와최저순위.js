@@ -25,7 +25,6 @@ lottos : [45, 4, 35, 20, 3, 9]   win_nums : [20, 9, 3, 45, 4, 35]    result: [1,
 function solution(lottos, win_nums) {
   let winNumber = 0; // 당첨 개수
   let zeroNumber = 0; // 0의 개수
-  let ranking; // 등수
   const answer = [];
   for (let i = 0; i < lottos.length; i++) {
     if (lottos[i] === 0) {
