@@ -3,9 +3,6 @@ function solution(record) {
   const map = new Map();
   for (let i = 0; i < record.length; i++) {
     const target = record[i].split(" ");
-    // target[0] = Enter, Leave, Change
-    // target[1] = uid
-    // target[2] = name
     if (target[0] === "Enter" || target[0] === "Change") {
       map.set(target[1], target[2]);
     }
