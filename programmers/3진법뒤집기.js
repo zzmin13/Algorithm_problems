@@ -10,7 +10,7 @@ function solution(n) {
     }
     return queue;
   };
-  const threeNumberReverse = threeDigit(n).reverse(); // [0,0,2,1]
+  const threeNumberReverse = threeDigit(n).reverse();
 
   let index = 0;
   for (let i = threeNumberReverse.length - 1; i >= 0; i--) {
