@@ -7,7 +7,7 @@ function solution(s) {
     return string.match(new RegExp(`.{1,${length}}`, "g"));
   };
 
-  for (let leng = 1; leng <= s.length; leng++) {
+  for (let leng = 1; leng <= Math.floor(s.length / 2) + 1; leng++) {
     const array = cutString(s, leng);
     const map = new Map();
     for (let i = 0; i < array.length; i++) {
