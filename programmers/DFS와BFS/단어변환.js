@@ -12,6 +12,7 @@ const BFS = (begin, start, target, words) => {
   const queue = [[begin, start]];
   let result = 0;
   let isBreak = false;
+
   while (queue.length) {
     const current = queue.shift();
     const string = current[0];
