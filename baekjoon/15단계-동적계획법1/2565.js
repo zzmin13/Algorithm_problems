@@ -59,5 +59,5 @@ for (let i = 1; i < N; i++) {
   }
   dp[i] = Math.max(...value);
 }
-
+console.log(dp);
 console.log(N - Math.max(...dp));
