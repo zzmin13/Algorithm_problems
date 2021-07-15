@@ -39,18 +39,53 @@
 
 */
 
-const getPermutations = (array, selectNumber) => {
-  const results = [];
-  if (selectNumber === 1) {
-    return array.map((value) => [value]);
+// const getPermutations = (array, selectNumber) => {
+//   const results = [];
+//   if (selectNumber === 1) {
+//     return array.map((value) => [value]);
+//   }
+//   array.forEach((fixed, index, origin) => {
+//     const rest = [...origin.slice(0, index), ...origin.slice(index + 1)];
+//     const permutations = getPermutations(rest, selectNumber - 1);
+//     const attached = permutations.map((permutation) => [fixed, ...permutation]);
+//     results.push(...attached);
+//   });
+//   return results;
+// };
+
+// let fs = require("fs");
+// let input = fs
+//   .readFileSync("예제.txt")
+//   .toString()
+//   .trim()
+//   .split(" ")
+//   .map((element) => Number(element));
+// const N = input[0];
+// const M = input[1];
+// const numbers = [];
+
+// for (let i = 1; i <= N; i++) {
+//   numbers.push(i);
+// }
+
+// const answer = getPermutations(numbers, M);
+// for (let i = 0; i < answer.length; i++) {
+//   console.log(answer[i].join(" "));
+// }
+
+const dfs = (cnt) => {
+  if (cnt === M) {
+    console.log(array.join(" "));
+    return;
   }
-  array.forEach((fixed, index, origin) => {
-    const rest = [...origin.slice(0, index), ...origin.slice(index + 1)];
-    const permutations = getPermutations(rest, selectNumber - 1);
-    const attached = permutations.map((permutation) => [fixed, ...permutation]);
-    results.push(...attached);
-  });
-  return results;
+  for (let i = 1; i <= N; i++) {
+    if (!visited[i]) {
+      visited[i] = true;
+      array[cnt] = i;
+      dfs(cnt + 1);
+      visited[i] = false;
+    }
+  }
 };
 
 let fs = require("fs");
@@ -62,13 +97,6 @@ let input = fs
   .map((element) => Number(element));
 const N = input[0];
 const M = input[1];
-const numbers = [];
-
-for (let i = 1; i <= N; i++) {
-  numbers.push(i);
-}
-
-const answer = getPermutations(numbers, M);
-for (let i = 0; i < answer.length; i++) {
-  console.log(answer[i].join(" "));
-}
+const visited = new Array(N + 1).fill(false);
+const array = [];
+dfs(0);
